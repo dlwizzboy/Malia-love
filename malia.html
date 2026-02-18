@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pour Malia ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    overflow: hidden;
+    color: white;
+}
+
+h1 {
+    margin-top: 40px;
+    text-shadow: 0 0 15px #fff;
+}
+
+img {
+    width: 200px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+#message {
+    display: none;
+    font-size: 40px;
+    margin-top: 30px;
+    color: #fff;
+    text-shadow: 0 0 20px red;
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.typing {
+    border-right: 3px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: typing 4s steps(30), blink .7s infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+.heart {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.7);
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh); }
+    100% { transform: translateY(110vh); }
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Mon petit secret pour toi 💕</h1>
+
+<img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" onclick="showLove()">
+
+<div id="message">
+    <span class="typing">❤️ Je t'aime Malia ❤️</span>
+</div>
+
+<audio id="music">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function showLove() {
+    document.getElementById("message").style.display = "block";
+    document.getElementById("music").play();
+}
+
+/* Pluie de cœurs */
+for (let i = 0; i < 30; i++) {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
